@@ -3,7 +3,7 @@ const User = require('../models/usermodel');
 
 const auth = async (req, res, next) => {
   try {
-    const token = req.header('Authorization').replace('Bearer', '');
+    const token = req.header('Authorization').replace('Bearer ', '');
     const decoded = jwt.verify(token, 'thisismynewcourse');
     const user = await User.findOne({
       _id: decoded._id,
@@ -17,7 +17,7 @@ const auth = async (req, res, next) => {
     req.user = user;
     next();
   } catch (e) {
-    res.status(401).send({ error: 'Please Authenticate' });
+    res.status(401).send({ error: 'Please authenticate.' });
   }
 };
 
