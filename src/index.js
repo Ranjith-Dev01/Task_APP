@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
 
-const { Router } = require("express");
-require("./db/mongoose");
-const userRouter = require("./routers/user");
-const taskRouter = require("./routers/task");
+const { Router } = require('express');
+require('./db/mongoose');
+const userRouter = require('./routers/user');
+const taskRouter = require('./routers/task');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,5 +13,5 @@ app.use(userRouter);
 app.use(taskRouter);
 
 app.listen(port, () => {
-  console.log("Port is up an runing " + port);
+  console.log('Port is up an runing ' + port);
 });
